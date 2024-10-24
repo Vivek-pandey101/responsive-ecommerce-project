@@ -1,0 +1,114 @@
+.NavbarContainer {
+  display: flex;
+  align-items: center;
+  padding: 30px 60px;
+  justify-content: space-between;
+  color: #241571;
+  background: #c2d1e7;
+}
+
+i{
+  margin-right: 5px;
+  color: #04286f;
+}
+
+#menuIcon{
+  display: none;
+}
+
+.Navbarlinks {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.Navbarlinks a:last-child {
+  border: 3px solid #52b2bf;
+  padding: 7px 20px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.SideBar {
+  display: none;
+}
+
+@media (max-width: 870px) {
+  .NavbarContainer {
+    font-size: 14px;
+  }
+  .Navbarlinks {
+    gap: 20px;
+  }
+  .Navbarlinks a:last-child {
+    font: 14px;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 685px) {
+  .NavbarContainer{
+    width: 100%;
+  }
+  .Navbarlinks {
+    display: none;
+  }
+  h2{
+    width: 100%;
+    text-align: center;
+  }
+  #menuIcon{
+    display: block;
+  }
+  .SideBar {
+    display: flex;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    z-index: 1111;
+  }
+  .overlay {
+    background: rgba(0, 0, 0, 0.333);
+    width: 100%;
+  }
+  .SideNavbarContainer {
+    width: 40%;
+    height: 100%;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    background: none;
+  }
+  .SideNavbarContainer button{
+    background: none;
+    width: fit-content;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    color: #241571;
+  }
+  .SideNavbarlinks{
+    display: flex;
+    flex-direction: column;
+    background: rgb(180, 209, 232);
+    height: 100%;
+    padding-top: 80px;
+    gap: 30px;
+  }
+  .closeBtn{
+    margin-left: 60px;
+  }
+  .SideNavbarlinks a{
+    background: #8ec1f4;
+    display: flex;
+    margin: 0 60px;
+    align-items: center;
+    padding: 6px 15px;
+    border-radius: 6px;
+    gap: 15px;
+  }
+}

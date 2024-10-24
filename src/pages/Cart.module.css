@@ -1,0 +1,38 @@
+.CartContainer{
+    background: white;
+    height: 86vh;
+}
+
+.CartContainer h1{
+    text-align: center;
+}
+
+.cartItem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 5px;
+}
+
+.cartItem img{
+    width: 60px;
+}
+
+@media (max-width: 500px) {
+    .cartItem p{
+        font-size: 14px;
+    }
+    .cartItem{
+        gap: 10px;
+    }
+}
+
+@media (max-width: 370px) {
+    .cartItem p{
+        font-size: 12px;
+    }
+    .cartItem{
+        gap: 5px;
+    }
+}
