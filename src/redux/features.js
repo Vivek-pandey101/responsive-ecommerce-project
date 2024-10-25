@@ -16,7 +16,7 @@ const initialState = {
 export const fetchData = createAsyncThunk("home/Allproducts", async () => {
   const response = await fetch("https://dummyjson.com/products");
   if (!response.ok) {
-    console.log("Failed to fetch products");
+    throw new Error("Failed to fetch products");
   }
   const { products } = await response.json();
   return products;
@@ -40,6 +40,32 @@ const productSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       state.cartData.push(action.payload);
+    },
+    incrementItem: (state, action) => {
+      const itemId = action.payload;
+      const item = state.cartData.find(
+        (cartItem) => cartItem.item.id === itemId
+      );
+
+      if (item) {
+        item.quantity += 1;
+      }
+    },
+    decrementItem: (state, action) => {
+      const itemId = action.payload;
+      const item = state.cartData.find(
+        (cartItem) => cartItem.item.id === itemId
+      );
+
+      if (item.quantity <= 1) {
+        return;
+      } else {
+        item.quantity -= 1;
+      }
+    },
+    removeFromCart: (state, action) => {
+      const itemId = action.payload;
+      state.cartData = state.cartData.filter((cartItem) => cartItem.item.id !== itemId);
     },
   },
   extraReducers: (builder) => {
@@ -66,6 +92,7 @@ const productSlice = createSlice({
   },
 });
 
-export const { addToCart } = productSlice.actions;
+export const { addToCart, incrementItem, decrementItem, removeFromCart } =
+  productSlice.actions;
 
 export default productSlice.reducer;

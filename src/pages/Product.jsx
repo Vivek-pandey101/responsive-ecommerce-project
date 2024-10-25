@@ -10,7 +10,6 @@ const Product = () => {
     dispatch(fetchData());
   }, [dispatch]);
   const {data, status} = useSelector((state) => state.ApiData);
-  console.log(data);
 
   const getProductById = (id) => {
     dispatch(fetchProductById(id))
