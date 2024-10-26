@@ -5,13 +5,19 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function ProductDetails() {
-  const [hide, setHide] = useState(true);
+  const {
+    status,
+    cartData,
+    detailedProduct: item,
+  } = useSelector((state) => state.ApiData);
+  const isInCart = cartData.some((cartItem) => cartItem.item.id === item.id);
+  const [hide, setHide] = useState(!isInCart);
+
   const dispatch = useDispatch();
   const handleaddToCart = (item) => {
     dispatch(addToCart(item));
+    setHide(false);
   };
-
-  const { status } = useSelector((state) => state.ApiData);
 
   const {
     availabilityStatus,
@@ -29,8 +35,8 @@ function ProductDetails() {
     warrantyInformation,
     weight,
     shippingInformation,
-  } = useSelector((state) => state.ApiData.detailedProduct);
-  const item = useSelector((state) => state.ApiData.detailedProduct);
+  } = item;
+  // const item = useSelector((state) => state.ApiData.detailedProduct);
 
   if (status === "pending") {
     return <p className={styles.Loading}>Loading...</p>;

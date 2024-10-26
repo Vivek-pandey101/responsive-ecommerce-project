@@ -6,10 +6,19 @@ const STATUS = Object.freeze({
   ERROR: "error",
 });
 
+const loadCartFromLocalStorage = () => {
+  const cart = localStorage.getItem("cartData");
+  return cart ? JSON.parse(cart) : [];
+};
+
+const saveCartToLocalStorage = (cartData) => {
+  localStorage.setItem("cartData", JSON.stringify(cartData));
+};
+
 const initialState = {
   data: [],
   status: STATUS.IDLE,
-  cartData: [],
+  cartData: loadCartFromLocalStorage(),
   detailedProduct: {},
 };
 
@@ -40,6 +49,7 @@ const productSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       state.cartData.push(action.payload);
+      saveCartToLocalStorage(state.cartData);
     },
     incrementItem: (state, action) => {
       const itemId = action.payload;
@@ -65,7 +75,10 @@ const productSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       const itemId = action.payload;
-      state.cartData = state.cartData.filter((cartItem) => cartItem.item.id !== itemId);
+      state.cartData = state.cartData.filter(
+        (cartItem) => cartItem.item.id !== itemId
+      );
+      saveCartToLocalStorage(state.cartData);
     },
   },
   extraReducers: (builder) => {
