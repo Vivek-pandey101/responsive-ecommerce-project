@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./MainPage.module.css";
 
 function MainPage() {
@@ -7,7 +8,7 @@ function MainPage() {
         <h1>Shopping Cart</h1>
         <p>Enjoy shopping and <br/>get anything you want</p>
       </div>
-      <button>Learn More</button>
+      <Link to="/about" className={styles.learnMore}>Learn More</Link>
     </div>
   );
 }

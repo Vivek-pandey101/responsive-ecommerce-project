@@ -1,49 +1,54 @@
-.MainContainer{
-    color: #1b0f53;
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    padding-left: 60px;
-    padding-top: 80px;
-    width: 100%;
-    height: 86vh;
-    background: url("../../public/homeimg.webp") no-repeat;
-    background-size: cover;
+.MainContainer {
+  color: #1b0f53;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-left: 60px;
+  padding-top: 80px;
+  width: 100%;
+  height: 86vh;
+  background: url("../../public/homeimg.webp") no-repeat;
+  background-size: cover;
 }
 
-.MainContainer div h1{
-    font-size: 3rem;
+.MainContainer div h1 {
+  font-size: 3rem;
 }
 
-.MainContainer div p{
-    font-size: 1.5rem;
+.MainContainer div p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.MainContainer .learnMore {
+  width: fit-content;
+  margin-top: 40px;
+  padding: 20px 25px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  background: linear-gradient(
+    to right,
+    rgb(231, 231, 3),
+    orange,
+    rgb(243, 9, 9)
+  );
+  border: none;
+  border-radius: 6px;
+  color: white;
+}
+
+@media (max-width: 1100px) {
+  .MainContainer div h1 {
+    font-size: 2.5rem;
+  }
+  .MainContainer div p {
+    font-size: 1.3rem;
     font-weight: 600;
+  }
 }
 
-.MainContainer button{
-    width: fit-content;
-    margin-top: 40px;
-    padding: 20px 25px;
-    font-weight: 700;
-    font-size: 1.5rem;
-    background: linear-gradient( to right, rgb(231, 231, 3), orange, rgb(243, 9, 9));
-    border: none;
-    border-radius: 6px;
-    color: white;
-}
-
-@media (max-width:1100px) {
-    .MainContainer div h1{
-        font-size: 2.5rem;
-    }
-    .MainContainer div p{
-        font-size: 1.3rem;
-        font-weight: 600;
-    }
-}
-
-@media (max-width:600px) {
-    .MainContainer{
-        padding-left: 30px;
-    }
+@media (max-width: 600px) {
+  .MainContainer {
+    padding-left: 30px;
+  }
 }
